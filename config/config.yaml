@@ -23,12 +23,9 @@ model:
   num_steps: 5
   num_classes: 6
   modulation: True
-  modulation_type: conv
+  modulation_type: ag
   modulation_on: layer_output
   modulation_timestep: all
-  modulation_num_heads: 4
-  modulation_activation: relu
-  modulation_dropout: 0.2
   pertubation: False
   pertubation_type: lr
   pertubation_on: hidden
@@ -40,7 +37,7 @@ model:
   hidden_init_mode: zeros
   fb_init_mode: zeros
   out_init_mode: zeros
-  fb_adjacency: Null
+  fb_adjacency: 
   - [0, 0, 0, 0]
   - [1, 0, 0, 0]
   - [0, 1, 0, 0]
