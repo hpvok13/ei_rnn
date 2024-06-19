@@ -186,8 +186,8 @@ def eval_iter(
 
 @hydra.main(
     version_base=None,
-    config_path="/om2/user/valmiki/bioplnn/config",
-    config_name="config_ei",
+    config_path="config",
+    config_name="config",
 )
 def train(config: DictConfig) -> None:
     """

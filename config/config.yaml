@@ -6,11 +6,7 @@ model:
   input_size: [128, 128]
   input_dim: 3
   h_pyr_dim: [16, 32, 64, 64]
-  h_inter_dims: # Null
-  - [4]
-  - [8]
-  - [16]
-  - [16]
+  h_inter_dim: [4, 8, 16, 16]
   fb_dim: [16, 32, 64, 64]
   exc_kernel_size: 
   - [5, 5]
@@ -22,14 +18,12 @@ model:
   - [5, 5]
   - [3, 3]
   - [3, 3]
-  num_compartments: 1
   immediate_inhibition: True
   num_layers: 4
   num_steps: 5
-  inter_mode: same
   num_classes: 6
   modulation: True
-  modulation_type: ag
+  modulation_type: conv
   modulation_on: layer_output
   modulation_timestep: all
   modulation_num_heads: 4
@@ -47,10 +41,10 @@ model:
   fb_init_mode: zeros
   out_init_mode: zeros
   fb_adjacency: Null
-  # - [0, 0, 0, 0]
-  # - [1, 0, 0, 0]
-  # - [0, 1, 0, 0]
-  # - [0, 0, 1, 0]
+  - [0, 0, 0, 0]
+  - [1, 0, 0, 0]
+  - [0, 1, 0, 0]
+  - [0, 0, 1, 0]
   pool_kernel_size: [5, 5]
   pool_stride: [2, 2]
   bias: True
@@ -64,8 +58,8 @@ data:
   assets_path: data/CLEVR_v1.0/cues
   batch_size: 256
   val_batch_size: 64
-  holdout: []
-  mode: every
+  holdout: [blue, green]
+  mode: color
   primitive: True
   num_workers: 8
 optimizer: 
@@ -99,8 +93,6 @@ checkpoint:
   root: checkpoints/ei
   run: Null
   epoch: Null
-visualize: True
-save_results: True
-save_results_root: outputs/predictions
 seed: Null
 tqdm: True
+wandb: False
